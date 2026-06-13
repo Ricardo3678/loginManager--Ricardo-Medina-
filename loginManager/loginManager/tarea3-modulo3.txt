@@ -1,0 +1,7 @@
+- Haz que el campo ID sea de solo lectura, es decir, que el usuario no pueda modificarlo
+- Limpiar campos depues de guardar
+- Mostrar mensaje con toast o alert de bootstrap.
+- Cambiar el elemento Select en el campo Activo por un slider.
+- Eliminar el boton Guardar(crea los regsitros en el boton Regsitrar)
+- Agrega bonton eliminar y hazlo funcional.
+- Crear vista de login funcional, solicitando usuario y password.

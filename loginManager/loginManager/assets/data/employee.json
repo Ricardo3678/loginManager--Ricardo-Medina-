@@ -1,0 +1,25 @@
+{
+    "empleados":[
+        {
+            "firstName":"John",
+            "lastName":"Doe",
+            "horario":[
+                { "lunes":"08:00 - 05:05"},
+                {"martes":"09:00 - 06:05"}
+            ]
+        },
+        {
+            "firstName":"Anna",
+            "lastName":"Smith" 
+        },
+        {
+            "firstName":"Peter",
+            "lastName":"Jones" 
+        },
+        {
+            "firstName":"Maria",
+            "lastName":"Jones" 
+        }
+    ]
+
+}

@@ -1,0 +1,30 @@
+[
+    {
+        "id": "1",
+        "userName": "johndoe",
+        "email": "john@example.com",
+        "password": "5454545454",
+        "isActive": true,
+        "personalInfo": {
+                "documentId": "123456789",
+                "firstName": "John",
+                "lastName": "Doe",
+                "age": 30,
+                "address": "123 Main St, Anytown, USA"
+        }
+    },
+    {   
+        "id": "2",
+        "userName": "annasmith",
+        "email": "anna@example.com",
+        "password": "5454545454",
+        "isActive": true,
+        "personalInfo": {
+                "documentId": "987654321",
+                "firstName": "Anna",
+                "lastName": "Smith",
+                "age": 25,
+                "address": "456 Oak Ave, Somewhere, USA"
+        }
+    }
+]

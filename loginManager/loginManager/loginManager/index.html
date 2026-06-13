@@ -1,0 +1,318 @@
+<!-- crea formulario para registro de usuarios para estos campos  -->
+<!-- id, userName, password, email, age, address -->
+<!-- En la vista login el usuario es admin y la contraseña es 1234 para ingresar al login manager -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Account Manager</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f4f6fb;
+            min-height: 100vh;
+        }
+        .login-card {
+            border: 0;
+            border-radius: 1rem;
+            box-shadow: 0 0.75rem 1.5rem rgba(84, 104, 149, 0.18);
+        }
+        .form-label {
+            font-weight: 600;
+        }
+        .form-section {
+            background-color: #ffffff;
+            padding: 1.5rem;
+            border-radius: 0.85rem;
+        }
+        /* Clase de utilidad para ocultar secciones suavemente */
+        .d-none {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="loginView" class="container py-5 mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-5 col-xl-4">
+                <div class="card login-card overflow-hidden">
+                    <div class="card-body p-4 form-section">
+                        <div class="text-center mb-4">
+                            <h2 class="mb-1 fw-bold">Iniciar Sesión</h2>
+                            <p class="text-secondary mb-0">Ingresa tus credenciales de acceso</p>
+                        </div>
+                        <form id="loginForm">
+                            <div class="mb-3">
+                                <label for="loginUser" class="form-label">Usuario</label>
+                                <input type="text" id="loginUser" class="form-control" placeholder="Ej: admin" required>
+                            </div>
+                            <div class="mb-4">
+                                <label for="loginPassword" class="form-label">Contraseña</label>
+                                <input type="password" id="loginPassword" class="form-control" placeholder="••••••••" required>
+                            </div>
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-primary btn-lg fw-bold">Ingresar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="managerView" class="container py-5 d-none">
+        <div class="d-flex justify-content-end mb-3">
+            <button id="logoutBtn" class="btn btn-sm btn-outline-danger fw-bold">Cerrar Sesión</button>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-xl-6">
+                <div class="card login-card overflow-hidden">
+                    <div class="card-body p-4 form-section">
+                        <div class="text-center mb-4">
+                            <h2 class="mb-1">Account Manager</h2>
+                            <p class="text-secondary mb-0">Registro y administración de usuarios</p>
+                        </div>
+                        <form id="userForm">
+                            <div class="row g-3 mb-3">
+                                <div class="col-md-6">
+                                    <label for="id" class="form-label">ID <span class="text-danger">*</span></label>
+                                    <input type="text" id="id" name="id" class="form-control" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="userName" class="form-label">Username <span class="text-danger">*</span></label>
+                                    <input type="text" id="userName" name="userName" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="row g-3 mb-3">
+                                <div class="col-md-6">
+                                    <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
+                                    <input type="password" id="password" name="password" class="form-control" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+                                    <input type="email" id="email" name="email" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="row g-3 mb-4">
+                                <div class="col-md-6 d-flex align-items-center" style="margin-top: 2.3rem;">
+                                    <div class="form-check form-switch fs-5">
+                                        <input class="form-check-input" type="checkbox" role="switch" id="isActived" name="isActived" checked>
+                                        <label class="form-check-label fw-semibold small" for="isActived">Usuario Activo</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="my-4">
+                            <h5 class="mb-3 text-capitalize">Información personal</h5>
+                            <div class="row g-3 mb-3">
+                                <div class="col-md-6">
+                                    <label for="documentId" class="form-label">Cédula</label>
+                                    <input type="text" id="documentId" name="documentId" class="form-control">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="age" class="form-label">Edad</label>
+                                    <input type="number" id="age" name="age" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row g-3 mb-3">
+                                <div class="col-md-6">
+                                    <label for="firstName" class="form-label">Nombre <span class="text-danger">*</span></label>
+                                    <input type="text" id="firstName" name="firstName" class="form-control" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="lastName" class="form-label">Apellido <span class="text-danger">*</span></label>
+                                    <input type="text" id="lastName" name="lastName" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="row g-3 mb-4">
+                                <div class="col-12">
+                                    <label for="address" class="form-label">Dirección</label>
+                                    <input type="text" id="address" name="address" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row g-3 mb-3">
+                                <div class="col-md-3 d-grid">
+                                    <button type="button" id="searchDocBtn" class="btn btn-info btn-lg">Buscar</button>
+                                </div>
+                                <div class="col-md-3 d-grid">
+                                    <button type="button" id="registerBtn" class="btn btn-primary btn-lg">Registrar</button>
+                                </div>
+                                <div class="col-md-3 d-grid">
+                                    <button type="button" id="updateBtn" class="btn btn-outline-secondary btn-lg">Actualizar</button>
+                                </div>
+                                <div class="col-md-3 d-grid">
+                                    <button type="button" id="deleteBtn" class="btn btn-danger btn-lg">Eliminar</button>
+                                </div>
+                            </div>
+                            <div class="text-center text-muted">
+                                <small><span class="text-danger">*</span> Campos obligatorios</small>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="../assets/js/loginManger.js"></script>
+<script>
+    // ==========================================
+    // LÓGICA DE CONTROL DE SESIÓN (LOGIN)
+    // ==========================================
+    const loginForm = document.getElementById('loginForm');
+    const loginView = document.getElementById('loginView');
+    const managerView = document.getElementById('managerView');
+    const logoutBtn = document.getElementById('logoutBtn');
+
+    loginForm.addEventListener('submit', function(e) {
+        e.preventDefault(); // Previene que la página se recargue
+
+        const userInput = document.getElementById('loginUser').value.trim();
+        const passwordInput = document.getElementById('loginPassword').value;
+
+        // EJEMPLO DE CREDENCIALES (Puedes adaptarlo a los usuarios de tu 'loginManger.js')
+        if (userInput === "admin" && passwordInput === "1234") {
+            alert('¡Bienvenido al sistema!');
+            
+            // Intercambio de pantallas usando la clase d-none de Bootstrap
+            loginView.classList.add('d-none');
+            managerView.classList.remove('d-none');
+            
+            loginForm.reset(); // Limpia los datos del login por seguridad
+        } else {
+            alert('Usuario o contraseña incorrectos. Intente de nuevo.');
+        }
+    });
+
+    logoutBtn.addEventListener('click', function() {
+        if(confirm('¿Desea cerrar sesión?')) {
+            managerView.classList.add('d-none');
+            loginView.classList.remove('d-none');
+            clearForm(); // Limpia el formulario del manager al salir
+        }
+    });
+
+    // ==========================================
+    // LÓGICA ORIGINAL DEL ACCOUNT MANAGER
+    // ==========================================
+    function getFormData() {
+        return {
+            id: document.getElementById("id").value,
+            userName: document.getElementById("userName").value,
+            email: document.getElementById("email").value,
+            password: document.getElementById("password").value,
+            isActive: document.getElementById("isActived").checked,
+            firstName: document.getElementById("firstName").value,
+            lastName: document.getElementById("lastName").value,
+            age: document.getElementById("age").value,
+            address: document.getElementById("address").value,
+            documentId: document.getElementById("documentId").value
+        };
+    }
+
+    function validateFormData(data) {
+        if (!data.id || !data.userName || !data.email || !data.password || !data.firstName || !data.lastName) {
+            alert('Por favor complete todos los campos requeridos');
+            return false;
+        }
+        return true;
+    }
+
+    function clearForm() {
+        document.getElementById("userForm").reset();
+        document.getElementById("id").value = generateRandomId();
+    }
+
+    function handleRegister() {
+        const data = getFormData();
+        if (!validateFormData(data)) {
+            return;
+        }  
+        addUser(data.id, data.userName, data.email, data.password, data.isActive, data.firstName, data.lastName, data.age, data.address, data.documentId);
+        alert('Usuario registrado y creado correctamente');
+        console.log('Usuarios:', users);
+        clearForm();
+    }
+
+    function handleUpdate() {
+        const data = getFormData();
+        if (!validateFormData(data)) {
+            return;
+        }
+        const updated = updateUser(data.id, data.userName, data.email, data.password, data.isActive, data.firstName, data.lastName, data.age, data.address, data.documentId);
+        if (!updated) {
+            alert('Usuario no encontrado. Verifique el ID e intente de nuevo.');
+            return;
+        }
+        alert('Usuario actualizado correctamente');
+        console.log('Usuarios:', users);
+        clearForm();
+    }
+
+    function handleDelete() {
+        const documentId = document.getElementById("documentId").value.trim();
+
+        if (!documentId) {
+            alert('Primero debe buscar y cargar un usuario para poder eliminarlo.');
+            return;
+        }
+
+        if (confirm('¿Está seguro de que desea eliminar a este usuario? Esta acción no se puede deshacer.')) {
+            const deleted = deleteUserByDocumentId(documentId); 
+
+            if (!deleted) {
+                alert('No se pudo eliminar. El usuario no existe en el sistema.');
+                return;
+            }
+
+            alert('Usuario eliminado correctamente');
+            console.log('Usuarios actuales:', users);
+            clearForm();
+        }
+    }
+
+    function fillForm(user) {
+        document.getElementById("id").value = user.id;
+        document.getElementById("userName").value = user.userName;
+        document.getElementById("email").value = user.email;
+        document.getElementById("password").value = user.password;
+        document.getElementById("isActived").checked = user.isActive;
+        document.getElementById("documentId").value = user.personalInfo.documentId;
+        document.getElementById("age").value = user.personalInfo.age;
+        document.getElementById("firstName").value = user.personalInfo.firstName;
+        document.getElementById("lastName").value = user.personalInfo.lastName;
+        document.getElementById("address").value = user.personalInfo.address;
+    }
+
+    function handleSearchByDocumentId() {
+        const documentId = document.getElementById("documentId").value.trim();
+        if (!documentId) {
+            alert('Ingrese la cédula para buscar');
+            return;
+        }
+        const user = findUserByDocumentId(documentId);
+        if (!user) {
+            alert('No se encontró ningún usuario con esa cédula');
+            return;
+        }
+        fillForm(user);
+        alert('Usuario encontrado y cargado en el formulario');
+    }
+
+    document.getElementById('searchDocBtn').addEventListener('click', handleSearchByDocumentId);
+    document.getElementById('registerBtn').addEventListener('click', handleRegister);
+    document.getElementById('updateBtn').addEventListener('click', handleUpdate);
+    document.getElementById('deleteBtn').addEventListener('click', handleDelete);
+
+    function generateRandomId() {
+        return Math.floor(Math.random() * 1000000).toString();
+    }
+
+    // Inicialización del entorno
+    document.getElementById("id").value = generateRandomId();
+    document.getElementById("id").readOnly = true;
+</script>
+</html>
